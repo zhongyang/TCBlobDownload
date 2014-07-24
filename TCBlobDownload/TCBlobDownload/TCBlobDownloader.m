@@ -65,6 +65,7 @@ NSString * const TCHTTPStatusCode = @"httpStatus";
 - (instancetype)initWithURL:(NSURL *)url
                downloadPath:(NSString *)pathToDL
                    delegate:(id<TCBlobDownloaderDelegate>)delegateOrNil
+
 {
     self = [super init];
     if (self) {
@@ -377,7 +378,7 @@ NSString * const TCHTTPStatusCode = @"httpStatus";
 
 - (NSString *)pathToFile
 {
-    return [self.pathToDownloadDirectory stringByAppendingPathComponent:self.fileName];
+    return self.pathToDownloadDirectory;
 }
 
 - (NSInteger)remainingTime
@@ -396,17 +397,17 @@ NSString * const TCHTTPStatusCode = @"httpStatus";
 
 - (void)setPathToDownloadDirectory:(NSString *)pathToDownloadDirectory
 {
-    NSError *__autoreleasing error;
-    BOOL createdOrExists = [NSFileManager createDirFromPath:pathToDownloadDirectory
-                                                      error:&error];
-    if (error) {
-        [self notifyFromError:error];
-        [self cancelDownloadAndRemoveFile:NO];
-    }
-    
-    if (createdOrExists) {
+//    NSError *__autoreleasing error;
+//    BOOL createdOrExists = [NSFileManager createDirFromPath:pathToDownloadDirectory
+//                                                      error:&error];
+//    if (error) {
+//        [self notifyFromError:error];
+//        [self cancelDownloadAndRemoveFile:NO];
+//    }
+//    
+//    if (createdOrExists) {
         _pathToDownloadDirectory = pathToDownloadDirectory;
-    }
+//    }
 }
 
 @end
