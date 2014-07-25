@@ -153,6 +153,9 @@ typedef NS_ENUM(NSUInteger, TCBlobDownloadState) {
  */
 @property (nonatomic, assign, readonly) TCBlobDownloadState state;
 
+
+@property (nonatomic, copy) NSString *downloadUUID;
+
 /**
  Instanciates a `TCBlobDownloader` object with delegate. `TCBlobDownloader` objects instanciated this way will not be executed until they are passed to the `TCBlobDownloaderManager` singleton.
  
