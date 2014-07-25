@@ -129,4 +129,6 @@
 */
 - (void)cancelAllDownloadsAndRemoveFiles:(BOOL)remove;
 
+- (TCBlobDownloader *)getDownloadHandleByUUID:(NSString *)UUID;
+
 @end

@@ -93,6 +93,14 @@
     }
 }
 
+- (TCBlobDownloader *)getDownloadHandleByUUID:(NSString *)UUID {
+    for (TCBlobDownloader *blob in [self.operationQueue operations]) {
+        if ([blob.downloadUUID isEqualToString:UUID]) {
+            return blob;
+        }
+    }
+    return nil;
+}
 
 #pragma mark - Custom Setters
 
